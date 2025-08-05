@@ -3,7 +3,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 # Load CSV
-df = pd.read_csv("movies.csv")
+df = pd.read_csv("movies1.csv")
 
 # Combine genres and plot into a single feature
 df["content"] = df["genres"].fillna('') + " " + df["plot"].fillna('')
@@ -29,3 +29,4 @@ def recommend(movie_code, top_n=500):
     # Return top_n recommended movie codes
     recommended_codes = df.iloc[[i[0] for i in sorted_scores]]["code"].tolist()
     return recommended_codes
+
